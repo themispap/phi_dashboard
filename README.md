@@ -36,7 +36,9 @@ phi-maths-dashboard/
 ├── app/                  # Streamlit app scripts
 │   ├── __init__.py
 │   ├── main.py           # Main Streamlit app script
+│   ├── utils.py          # Utility functions
 │   ├── pages/            # Additional Streamlit pages
+│   ├── static/           # Static files like images, CSS
 │   ├── queries.py        # Optional: Store SQL queries as constants
 ├── sql/                  # SQL query files
 │   ├── get_student_info.sql
