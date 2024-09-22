@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -26,7 +26,7 @@ def execute_query(query_file, start_date, end_date, acad_year, values=()):
 
     # Execute the query and return a DataFrame
     with engine.connect() as connection:
-        result = connection.execute(query, values)
+        result = connection.execute(text(query), values)
         df = pd.DataFrame(result.fetchall(), columns=result.keys())
 
     return df
