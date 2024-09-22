@@ -12,9 +12,9 @@ def execute_query(query_file, start_date, end_date, acad_year, values=()):
         query = file.read()
     
     # Replace placeholders in the query
-    query = query.replace('{start_date}', start_date)
-    query = query.replace('{end_date}', end_date)
-    query = query.replace('{acad_year}', acad_year)
+    query = query.format(acad_year="'"+acad_year+"'",start_date=start_date,end_date=end_date)
+    # Remove newline characters (\n) and unnecessary whitespaces
+    query = ' '.join(query.split())
 
     # Create a local database connection using credentials from .env
     username = os.getenv('DB_USERNAME')
